@@ -35,27 +35,37 @@
 
 class Color {
  private:
+  BYTE aa;
   BYTE rr;
   BYTE gg;
   BYTE bb;
   color_t rgb;
+  color_t argb;
 
  public:
-  Color(BYTE, BYTE, BYTE);
+  Color(BYTE r_, BYTE g_, BYTE b_,BYTE a_);
+  Color(BYTE r_, BYTE g_, BYTE b_);
   Color(const Color&);
-  Color(string);
+  //Color(string);
   Color() ;
   ~Color();
+  BYTE getA();
   BYTE getR();
   BYTE getG();
   BYTE getB();
   color_t getRGB();
-  void setR(BYTE);
-  void setG(BYTE);
-  void setB(BYTE);
+  color_t getARGB();
+  void setA(BYTE a);
+  void setR(BYTE r);
+  void setG(BYTE g);
+  void setB(BYTE b);
   void setRGB();
+  void setARGB();
 };
 
 class Color_mutable : protected Color {
   using Color::Color;
 };
+
+Color _t2Color(color_t c_t);
+color_t Color2_t(Color c);

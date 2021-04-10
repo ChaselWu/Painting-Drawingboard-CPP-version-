@@ -1,17 +1,22 @@
+// A point class.This class represents the 2d coordinates of a point
 #pragma once
+#include<graphics.h>
 
-//A point class.This class represents the 2d coordinates of a point
+
 
 class Point {
  private:
   int c_x;
   int c_y;
+  ege_point coord;
 
  public:
   Point(int, int);
   ~Point();
   int getX();
   int getY();
-  void setX(int);
-  void setY(int);
+  ege_point getCoord();
+  void setX(int x);
+  void setY(int y);
+  void setCoord();
 };
