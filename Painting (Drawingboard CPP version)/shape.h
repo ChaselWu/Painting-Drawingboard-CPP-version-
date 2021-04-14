@@ -14,9 +14,9 @@
 #include"color.h"
 #include "point.h"
 #include<stack>
-#include<vector>
+#include<array>
 using std::stack;
-using std::vector;
+using std::array;
 
 class Shape {
  private:
@@ -26,9 +26,10 @@ class Shape {
   Shape();
   ~Shape();
   virtual void paint() = 0;
+  virtual void setColor() = 0;
 };
 
-class Shape_closed :protected Shape{
+class Shape_closed :public Shape{
  private:
   Color border;
   Color fill;
@@ -45,9 +46,10 @@ class Shape_closed :protected Shape{
   void setFill(Color fill_);
   void setIf_fill(bool if_fill_);
   virtual void paint() override = 0;
+  virtual void setColor() override;
 };
 
-class Shape_open : protected Shape {
+class Shape_open : public Shape {
  private:
   Color border;
 
@@ -58,12 +60,13 @@ class Shape_open : protected Shape {
   Color getBorder();
   void setBorder(Color border_);
   virtual void paint() override =0;
+  virtual void setColor() override;
 };
 
 
 
 
-class Line:protected Shape_open {
+class Line:public Shape_open {
  private:
   Point coo1;
   Point coo2;
@@ -82,7 +85,7 @@ class Line:protected Shape_open {
 
 
 
-class Arc : protected Shape_open {
+class Arc : public Shape_open {
  private:
   Point center;
   int stangle;
@@ -110,7 +113,7 @@ class Arc : protected Shape_open {
 
 
 
-class Polygon:protected Shape_closed {
+class Polygon:public Shape_closed {
  private:
   int n_points;
   stack<Point> endpoints;
@@ -132,13 +135,14 @@ class Polygon:protected Shape_closed {
 
 
 
-class Circle :protected Shape_closed{
+class Circle :public Shape_closed{
  private:
   Point center;
   float radius;
   float radius_b;
 
  public:
+  using Shape_closed::Shape_closed;
   Circle(Point cen_, float rad_, float b_, Color border_, Color fill_,
          bool if_fill_);
   Circle(Point cen_, float rad_, float b_);
@@ -151,13 +155,42 @@ class Circle :protected Shape_closed{
   void setCen(Point);
   void setRadius(float);
   void setRadius_b(float);
+  void setRadius_b();
   virtual void paint() override;
 };
-//class Rectangle {};
-//class Triangle {};
-//
-//
-//void Paint(Shape&);
 
 
+class Triangle:public Shape_closed {
+ private:
+  array<Point, 3> endpoints{Point(0, 0), Point(0, 0), Point(0, 0)};
+ public:
+  using Shape_closed::Shape_closed;
+  Triangle(Point a, Point b, Point c, Color border_, Color fill_,
+            bool if_fill_);
+  Triangle(Point a, Point b, Point c);
+  ~Triangle();
+  array<Point, 3> getEndpoints();
+  void setEndpoints(Point a, Point b, Point c);
+  virtual void paint() final;
+};
+
+class Rectangle_ : public Shape_closed {
+ private:
+  array<Point, 2> endpoints{Point(0, 0), Point(0, 0)};
+
+ public:
+  using Shape_closed::Shape_closed;
+  Rectangle_(Point a, Point b, Color border_, Color fill_,
+           bool if_fill_);
+  Rectangle_(Point a, Point b, Color border_, Color fill_);
+  Rectangle_(Point a, Point b, Color border_);
+  Rectangle_(Point a, Point b);
+  ~Rectangle_();
+  array<Point, 2> getEndpoints();
+  void setEndpoints(Point a, Point b);
+  virtual void paint() final;
+};
+
+
+void draw(Shape*);
 float int2float(int);

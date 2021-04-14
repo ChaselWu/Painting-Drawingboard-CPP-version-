@@ -139,18 +139,23 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="button.cpp" />
     <ClCompile Include="color.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="point.cpp" />
+    <ClCompile Include="range.cpp" />
     <ClCompile Include="shape.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="color.h" />
     <ClInclude Include="controller.h" />
     <ClInclude Include="head.h" />
+    <ClInclude Include="mouse.h" />
     <ClInclude Include="point.h" />
+    <ClInclude Include="range.h" />
     <ClInclude Include="shape.h" />
     <ClInclude Include="tools.h" />
+    <ClInclude Include="button.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

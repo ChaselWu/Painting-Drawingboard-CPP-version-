@@ -27,6 +27,12 @@
     <ClCompile Include="shape.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="range.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="button.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="controller.h">
@@ -45,6 +51,15 @@
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="tools.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="button.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="mouse.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="range.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

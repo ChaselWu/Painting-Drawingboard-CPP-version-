@@ -63,7 +63,7 @@ class Color {
   void setARGB();
 };
 
-class Color_mutable : protected Color {
+class Color_mutable : public Color {
   using Color::Color;
 };
 
