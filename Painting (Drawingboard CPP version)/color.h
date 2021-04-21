@@ -69,3 +69,6 @@ class Color_mutable : public Color {
 
 Color _t2Color(color_t c_t);
 color_t Color2_t(Color c);
+
+
+//array<

@@ -141,10 +141,13 @@
   <ItemGroup>
     <ClCompile Include="button.cpp" />
     <ClCompile Include="color.cpp" />
+    <ClCompile Include="controller.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="mouse.cpp" />
     <ClCompile Include="point.cpp" />
     <ClCompile Include="range.cpp" />
     <ClCompile Include="shape.cpp" />
+    <ClCompile Include="tool.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="color.h" />
