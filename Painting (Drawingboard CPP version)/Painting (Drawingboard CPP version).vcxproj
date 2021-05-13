@@ -142,6 +142,7 @@
     <ClCompile Include="button.cpp" />
     <ClCompile Include="color.cpp" />
     <ClCompile Include="controller.cpp" />
+    <ClCompile Include="interface.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="mouse.cpp" />
     <ClCompile Include="point.cpp" />
@@ -152,6 +153,7 @@
   <ItemGroup>
     <ClInclude Include="color.h" />
     <ClInclude Include="controller.h" />
+    <ClInclude Include="interface.h" />
     <ClInclude Include="head.h" />
     <ClInclude Include="mouse.h" />
     <ClInclude Include="point.h" />

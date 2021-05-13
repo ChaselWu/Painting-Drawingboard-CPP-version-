@@ -4,11 +4,13 @@
 #pragma once
 #include<graphics.h>
 #include"mouse.h"
+#include"button.h"
 class Controller {
  public:
   Controller();
   void table_start();
-  void init_gra();
-  void run();
-  void close_gra();
+  void run_gra();
 };
+
+
+void init_buttons();

@@ -12,6 +12,7 @@ class Point {
 
  public:
   Point(int, int);
+  Point();
   ~Point();
   int getX();
   int getY();
@@ -19,4 +20,5 @@ class Point {
   void setX(int x);
   void setY(int y);
   void setCoord();
+  bool operator==(const Point&);
 };

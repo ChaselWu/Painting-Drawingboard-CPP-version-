@@ -8,5 +8,6 @@ class Range {
   int max_y;
   bool is_in_range(Point p_);
   Range(int min_x_, int max_x_,int min_y_,int max_y_);
+  Range();
   ~Range(){};
 };
