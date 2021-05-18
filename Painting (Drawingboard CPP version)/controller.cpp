@@ -128,6 +128,7 @@ void Controller::run_gra() {
                   float(3.1415926) * 180) +
               (po_temp.getX() - arc_->getCenter().getX()>=0?0:180));
           po_temp_flag = 0;
+          arc_->setBorder(color_border);
           draw(arc_);
           *arc_ = Arc_(Point(), 100000, 100000, 100000);
         }
@@ -146,12 +147,14 @@ void Controller::run_gra() {
                       0.5)));
           cir_->setRadius_b(cir_->getRadius());
           po_temp_flag = 0;
+          cir_->setBorder(color_border);
+          cir_->setFill(color_fill);
           draw(cir_);
           *cir_ = Circle(Point(), 0);
         }
       }
     } else if (4 == mod_shape) {
-      if (0 == n_po) {
+      /*if (0 == n_po) {
         for (; !poly_po.empty();) {
           poly_po.pop();
         }
@@ -171,7 +174,7 @@ void Controller::run_gra() {
           poly_po.pop();
         }
         poly_po.push(Point());
-      }
+      }*/
 
     } else if (5 == mod_shape) {
       if (Point() ==rec_po[0]) {
@@ -184,6 +187,8 @@ void Controller::run_gra() {
           rec_po[1] = po_temp;
           *rec_ = Rectangle_(rec_po[0],rec_po[1]);
           po_temp_flag = 0;
+          rec_->setBorder(color_border);
+          rec_->setFill(color_fill);
           draw(rec_);
           rec_po[0] = Point();
           rec_po[1] = Point();
@@ -205,6 +210,8 @@ void Controller::run_gra() {
           tri_po[2] = po_temp;
           po_temp_flag = 0;
           tri_->setEndpoints(tri_po[0], tri_po[1], tri_po[2]);
+          tri_->setBorder(color_border);
+          tri_->setFill(color_fill);
           draw(tri_);
           for (int i = 0; i < 3; i++) {
             tri_po[i] = Point();

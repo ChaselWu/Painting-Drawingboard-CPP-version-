@@ -281,14 +281,10 @@ void Rectangle_::paint() {
   }
 }
 
-
 void draw(Shape* s_) {
   s_->setColor();
   s_->paint();
 }
-
-
-
 
 float int2float(int x) {
   float f = static_cast<float>(x);
